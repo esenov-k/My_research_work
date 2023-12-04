@@ -9,8 +9,10 @@
 \begin{document}                                                                % Начало документа
 
 \includepdf[pages=1]{titlepage.pdf}                                             % Добавляем титульный лист
+
 \maketableofcontents                                                            % Содержание
 
+\include{./sourcefiles/00-abbreviations.tex}                                         % Сокращения
 \include{./sourcefiles/01-introduction}                                         % Введение
 \include{./sourcefiles/02-body}                                                 % Основная часть
 \include{./sourcefiles/03-ending}                                               % Заключение
