@@ -1,0 +1,23 @@
+\providecommand\classopts{}                                                     % Для возможности задания class option из Makefile
+\expandafter\documentclass\expandafter[\classopts]{bmstu}                       % https://github.com/Orianti/bmstu-latex-class/tree/master
+                   
+\usepackage{url}                                                                % Кликабельные интернет-ссылки
+\usepackage{pdfpages}                                                           % Вставка страниц из PDF
+\usepackage{longtable}															% Возможность переносить таблицы на следующую страницу
+\bibliography{BibDB}                                                            % Библиографический список
+\input{./commands.tex}                                                          % Пользовательские команды
+
+\begin{document}                                                                % Начало документа
+
+\includepdf[pages=1]{titlepage.pdf}                                             % Добавляем титульный лист
+
+\maketableofcontents                                                            % Содержание
+
+\include{./sourcefiles/00-abbreviations.tex}                                         % Сокращения
+\include{./sourcefiles/01-introduction}                                         % Введение
+\include{./sourcefiles/02-body}                                                 % Основная часть
+\include{./sourcefiles/03-ending}                                               % Заключение
+
+\makebibliography                                                               % Список литературы
+
+\end{document}                                                                  % Конец документа
