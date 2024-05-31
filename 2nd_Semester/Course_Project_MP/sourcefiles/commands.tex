@@ -1,0 +1,119 @@
+% В данном файле предлагается располагать пользовательские команды
+
+% Удобная команда для вставки картинок
+\newcommand{\img}[5][htb]{
+  	\begin{figure}[#1]
+    		\centering
+    		\includegraphics[width = #5\linewidth]{./img/#3}
+   	 	\caption{#4}
+	 	\label{#2}
+  	\end{figure}
+}
+
+% Включение сквозной нумерации рисунков
+\counterwithout{figure}{chapter}
+
+% Изменение команды из шаблона bmstu для корректной вставки номера страницы
+% списка литературы
+\renewcommand{\makebibliography}
+{	
+\printbibliography[heading=bibintoc,title={СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}]
+}
+
+% Команда для добавления сокращения
+\newcommand{\abbr}[2]{
+	\DeclareAcronym{#1}{
+    	short={#1},
+    	long={--- #2},
+    }
+}
+
+% Команда для вставки списка сокращений. По умолчанию выводится сортированный
+% список сокращений. Если необходимо вывести список в порядке указания (в файле
+% abbreviations.tex), то необходимо указать параметр sort=false.
+\newcommand{\printabbr}{
+	\printacronyms[display=all,sort=true,name={ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ},
+	preamble={В	настоящей расчетно-пояснительной записке применяют следующие 
+	сокращения и обозначения.}] 
+	\addcontentsline{toc}{chapter}{ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ}
+}
+
+
+% Вставка титульника для курсового проекта. Пример вставки:
+%\makecourseprojecttitle{Специальное машиностроение}                             % Факультет
+%                {Робототехнические системы и мехатроника}                       % Название кафедры
+%                {Разработка робота-пылесоса}                                    % Тема КП
+%                {М.А. Козлов/СМ7-23М}                                           % Группа студента
+%                {В.В. Зеленцов}                                                 % Научный руководитель
+%                {}                                                              % Консультант, если есть
+
+\newcommand{\makecourseprojecttitle}[6]
+{
+	\documentmeta{РПЗ к КР}{#4}{}{#3}
+
+	\begin{titlepage}
+		\centering
+
+		\titlepageheader{#1}{#2}
+		\vspace{15.8mm}
+
+		\titlepagenotetitle{К КУРСОВОМУ ПРОЕКТУ}{#3}
+		\vfill
+
+		\titlepageauthors{#4}{Руководитель курсового проекта}{#5}{#6}{}
+		\vspace{14mm}
+
+		\textit{{\the\year} г.}
+	\end{titlepage}
+
+	\setcounter{page}{2}
+}
+
+% Вставка титульника для реферата. Пример использования:
+%\makeabstracttitle{Социальные и гуманитарные науки}                             % Факультет
+%                {Философия}                                                     % Название кафедры
+%                {Методология технических наук}                                  % Тема реферата
+%		 {М.А. Козлов/СМ7-23М}                                           % Фамилия и группа студента
+%                {В.А. Иноземцев}   	                                         % Преподаватель
+
+\newcommand{\makeabstracttitle}[5]
+{
+	\documentmeta{Реферат}{#4}{}{#3}
+
+	\begin{titlepage}
+		\centering
+
+		\titlepageheader{#1}{#2}
+		\vspace{15.8mm}
+
+		\titlepageabstracttitle{#3}
+		\vfill
+
+		\titlepageauthors{#4}{Преподаватель}{#5}{}{}
+		\vspace{14mm}
+
+		\textit{{\the\year} г.}
+	\end{titlepage}
+
+	\setcounter{page}{2}
+}
+
+% Служебная команда вставки основной части титульника
+\newcommand{\titlepageabstracttitle}[1]
+{
+	{
+		\LARGE \bfseries
+		РЕФЕРАТ \\
+	}
+	\vspace{5mm}
+	{
+		\Large \itshape
+		\vspace{3mm}
+		НА ТЕМУ: \\
+	}
+	{
+		\Large \itshape
+		\vspace{5mm}
+		<<#1>> \\
+	}
+}
