@@ -1,0 +1,15 @@
+\newcommand{\img}[5][htb]{
+  	\begin{figure}[#1]
+    		\centering
+    		\includegraphics[width = #5\linewidth]{./img/#3}
+   	 	\caption{#4}
+	 	\label{#2}
+  	\end{figure}
+  }
+  
+\renewcommand{\makebibliography}
+{
+\printbibliography[heading=bibintoc, title={СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}]
+}
+
+\renewcommand{\phi}{\varphi}
