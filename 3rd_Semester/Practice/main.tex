@@ -4,6 +4,25 @@
 \usepackage{url}                                                                % Кликабельные интернет-ссылки
 \usepackage{pdfpages}                                                           % Вставка страниц из PDF
 \usepackage{longtable}															% Возможность переносить таблицы на следующую страницу
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.5,0}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color{codegreen},
+    showstringspaces=false,
+    columns=fullflexible,
+    keepspaces=true,
+    frame=none,
+    breaklines=true,
+    breakatwhitespace=false,
+    escapeinside={(*@}{@*)}
+}
+
 \bibliography{BibDB}                                                            % Библиографический список
 \input{./commands.tex}                                                          % Пользовательские команды
 
@@ -11,9 +30,11 @@
 
 \includepdf[pages=1]{titlepage.pdf}                                             % Добавляем титульный лист
 
+\includepdf[pages=1]{titlepage.pdf}                                             % Добавляем титульный лист
+
 \maketableofcontents                                                            % Содержание
 
-\include{./sourcefiles/00-abbreviations.tex}                                         % Сокращения
+%\include{./sourcefiles/00-abbreviations.tex}                                         % Сокращения
 \include{./sourcefiles/01-introduction}                                         % Введение
 \include{./sourcefiles/02-body}                                                 % Основная часть
 \include{./sourcefiles/03-ending}                                               % Заключение
